@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="ES">
+<head>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Ubuntu:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ChatBot</title>
+</head>
+<body>
+    <img src="./img.jpg" alt="fondo" class="bg">
+    <header>
+        <h1>Cody ChatBot</h1>
+    </header>
+    <article > 
+        <p id="desc"></p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras vitae egestas diam. Donec vehicula luctus ipsum, ac feugiat lectus ullamcorper non. Duis condimentum ultrices sem, quis vulputate metus sollicitudin nec. Praesent faucibus risus non ex dictum consectetur. Duis enim urna, rutrum a odio dictum, consectetur placerat lectus. Etiam porta libero eu arcu hendrerit eleifend. Nullam laoreet mollis est eu egestas.</p>
+        
+            <br>
+        <div id="user_area">
+            <aside>
+
+                <a href="#" onclick="showlogin()" class="btns_left" id="a">Iniciar Sesión</a>
+                
+                <br><br>
+                <a href="#" onclick="showregister()" class="btns_left" id="b">Registro</a>
+                <br>
+                <br>
+                <a href="#" onclick="" class="btns_left" id="c">Anonimo</a>
+            </aside>
+                <br>
+        <section id="login_section">
+            <nav id="rol_selection">
+                <a href="#" class="role" id="usuario_role" onclick="showusuario()">Usuario</a>
+                <a href="#" class="role" id="admin_role" onclick="showadmin()">Admin</a>
+            </nav>
+
+            <div id="login_credentials_usuario" class="credentials">
+                <label for="correo_usuario">Correo:</label>
+                <br>
+                <input type="email" id="correo_usuario" class="user_input" placeholder="Ingrese su correo">
+                <br>
+                <br>
+                <label for="contraseña_usuario">Contraseña:</label>
+                <br>
+                <input type="password" id="contraseña_usuario" class="user_input" placeholder="Ingrese su contraseña">
+                <br>
+                <br>
+                <a href="#" onclick="log_in()" id="btn_login" class="black_btns">Ingresar</a>
+            </div>
+            
+            <div id="login_credentials_admin" class="credentials">
+                <label for="cedula_admin">Cedula:</label>
+                <br>
+                <input type="email" id="cedula_admin" class="user_input" placeholder="Ingrese su correo">
+                <br>
+                <br>
+                <label for="contraseña_admin">Contraseña:</label>
+                <br>
+                <input type="password" id="contraseña_admin" class="user_input" placeholder="Ingrese su contraseña">
+                <br><br>
+                <a href="#" onclick="log_in()" id="btn_login" class="black_btns">Ingresar</a>
+            </div>
+        </section>
+        <section id="register_section">
+            <div id="register_credentials_usuario" class="credentials">
+                <label for="reg_nombre_usuario">Nombre:</label>
+                <input type="text" id="reg_nombre_usuario" class="user_input" placeholder="Ingrese su nombre">
+                <br><br>
+                <label for="reg_apellido_usuario">Apellido/s:</label>
+                <input type="" id="reg_apellido_usuario" class="user_input" placeholder="Ingrese su apellido/s">
+                <br><br>
+                <label for="reg_correo_usuario">Correo Electronico:</label>
+                <input type="email" id="reg_correo_usuario" class="user_input" placeholder="Ingrese su correo">
+                <br><br>
+                <label for="reg_contraseña">Contraseña:</label>
+                <input type="password" id="reg_contraseña" class="user_input" placeholder="Ingrese su contraseña">
+                <br><br>
+                <label for="reg_contraseña_check">Confirmar Contraseña:</label>
+                <input type="password" id="reg_contraseña_check" class="user_input" placeholder="Vuelva a ingresar su contraseña">
+                <br><br>
+                <a href="#" onclick="log_in()" id="btn_register" class="black_btns">Registrarse</a>
+            </div>
+        </section>
+    </div>
+</article>
+    
+<script>
+    let login = document.getElementById("login_section");
+    let register = document.getElementById("register_section");
+    register.style.display = "none"
+    function showlogin(){
+        if(login.style.display === "none"){
+        login.style.display = "block"
+        register.style.display = "none"
+        }
+    }
+    function showregister(){
+        if(register.style.display === "none"){
+        register.style.display = "block"
+        login.style.display = "none"
+        }
+    }
+    let y = document.getElementById("login_credentials_usuario");
+    let x = document.getElementById("login_credentials_admin");
+    x.style.display = "none"
+    function showusuario(){
+        if(y.style.display === "none"){
+        y.style.display = "block"
+        x.style.display = "none"
+        }
+
+    }
+    function showadmin(){
+
+        if(x.style.display === "none"){
+        x.style.display = "block"
+        y.style.display = "none"
+        }
+
+    }
+    function log_in(){
+    let username = document.getElementById("correo_usuario").value;
+    let password = document.getElementById("contraseña_usuario").value;
+    (username == "cody@prototype.com" && password == 12345 ) 
+    ? location.replace("chat.html") : alert("El correo y/o contraseña son incorrectos, intente nuevamente")
+    }
+</script>
+</body>
+</html>
